@@ -1,0 +1,53 @@
+.side-table {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  width: 50%;
+  &.reverse {
+    .orderbook-element,
+    .orderbook-element-header {
+      flex-direction: row-reverse;
+    }
+    .orderbook-element {
+      span {
+        text-align: left;
+        &.bg {
+          left: 0;
+        }
+      }
+    }
+  }
+  .orderbook-element,
+  .orderbook-element-header {
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    span {
+      width: 50px;
+      text-align: right;
+      position: relative;
+      z-index: 1;
+      &.bg {
+        z-index: 0;
+        height: 20px;
+        top: 0;
+        right: 0;
+        position: absolute;
+      }
+    }
+  }
+  .orderbook-element-header {
+    text-transform: uppercase;
+    color: #8ca0c6;
+    margin-bottom: 5px;
+    span {
+      text-align: center;
+    }
+  }
+  &.bids .bg {
+    background-color: #235e62;
+  }
+  &.asks .bg {
+    background-color: #66374a;
+  }
+}

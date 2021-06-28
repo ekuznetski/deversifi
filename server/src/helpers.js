@@ -23,11 +23,6 @@ function fillOrders() {
   return new Promise((rs) => {
     const orders = {};
     for (let i = 0; i < stateSettings.ordersLength; i++) {
-      const amount = roundDecimal(
-        Math.random() * (stateSettings.maxAmount - stateSettings.minAmount) +
-          stateSettings.minAmount,
-        stateSettings.precisionAmount
-      );
       orders[i] = {
         userId: 0,
         id: generateId(),
@@ -36,7 +31,12 @@ function fillOrders() {
             stateSettings.minPrice,
           stateSettings.precisionPrice
         ),
-        amount: i % 2 === 0 ? amount : -amount,
+        amount: roundDecimal(
+          Math.random() * (stateSettings.maxAmount - stateSettings.minAmount) +
+            stateSettings.minAmount,
+          stateSettings.precisionAmount
+        ),
+        side: i % 2 === 0 ? "ask" : "bid",
       };
     }
     state.orders = orders;

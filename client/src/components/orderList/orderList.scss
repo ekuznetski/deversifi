@@ -1,0 +1,50 @@
+.order-list {
+  padding: 10px;
+  h3 {
+    text-align: center;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  .order-list-element,
+  .order-list-element-header {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 5px;
+    span {
+      width: 30px;
+      text-align: left;
+    }
+  }
+  .order-list-element {
+    transition: 0.2s background-color;
+    &:hover {
+      background-color: rgba(240, 248, 255, 0.05);
+    }
+    .order-cancel-button {
+      background-color: #ee5f5f;
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-weight: bold;
+      font-size: 14px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s background-color;
+      &:hover {
+        background-color: #cc4551;
+      }
+    }
+  }
+  .order-list-element-header {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #8ca0c6;
+  }
+  .empty {
+    text-align: center;
+  }
+}

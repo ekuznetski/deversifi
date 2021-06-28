@@ -32,16 +32,16 @@ function updateOrderbook() {
     const orders = Object.values(state.orders);
     for (let i = 0; i < orders.length; i++) {
       const { amount, price } = orders[i];
-      const side = amount > 0 ? "bids" : "asks";
+      const side = orders[i].side + "s";
       let pp = {
         price,
-        amount: Math.abs(amount),
+        amount: amount,
         count: 1,
       };
       if (!!orderbook[side][price]) {
         orderbook[side][price] = {
           price,
-          amount: Math.abs(orderbook[side][price].amount) + Math.abs(amount),
+          amount: orderbook[side][price].amount + amount,
           count: orderbook[side][price].count + 1,
         };
       } else {
