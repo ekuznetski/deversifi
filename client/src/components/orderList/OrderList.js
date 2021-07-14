@@ -50,7 +50,6 @@ export function OrderList() {
   function cancelOrder(id) {
     const data = { orderId: id };
     cancelOrderRequest(data).then((e) => {
-      // todo сделать консистентные данные, везде использовать side вместо положительного/отрицательного amount
       updateUserOrders(appState.userId, setAppState);
       updateOrderbook(setAppState);
     });
